@@ -1,7 +1,15 @@
 import styled, { keyframes } from "styled-components";
 
+const Title = styled.h1`
+  color: ${(props) => props.theme.textColor};
+`;
 const Wrapper = styled.div`
   display: flax;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  background-color: ${(props) => props.theme.backgroundColor};
 `;
 
 // animation
@@ -20,6 +28,10 @@ const rotationAnimation = keyframes`
     transform: rotate(360deg);
     border-radius: 0px;
 `;
+
+const Emoji = styled.span`
+  font-size: 36px;
+`;
 const Box = styled.div`
   height: 200px;
   width: 200px;
@@ -31,11 +43,9 @@ const Box = styled.div`
   // Box안에 span태그를 설정할 수 있다.
   // 꼭 모든 Component 안에 Style Component 를 설정할 필요는 없다.
   // 타겟을 설정하여 지정할 수 있다.
-  span {
-    font-size: 36px;
-    // hover를 같이 설정할 수 있다.
-    &:hover {
-      font-size: 50px;
+  // hover를 같이 설정할 수 있다.
+  ${Emoji}:hover {
+    font-size: 98px;
   }
 `;
 
@@ -70,9 +80,7 @@ const Box = styled.div`
 function App() {
   return (
     <Wrapper>
-      <Box>
-        <span>💢</span>
-      </Box>
+      <Title>hello</Title>
     </Wrapper>
   );
 }
